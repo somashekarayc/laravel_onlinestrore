@@ -8,17 +8,17 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $viewData = [];
-        $viewData["title"] = "Home Page - Online Store";
-        return view('home.index')->with("viewData", $viewData);
+        $vData = [];
+        $vData["title"] = "Home Page - Online Store";
+        return view('home.index')->with("vData", $vData);
     }
     public function about()
     {
-        $viewData = [];
-        $viewData["title"] = "About us - Online Store";
-        $viewData["subtitle"] = "About us";
-        $viewData["description"] = "This is an about page ...";
-        $viewData["author"] = "Developed by: som";
-        return view('home.about')->with("viewData", $viewData);
+        $vData = [];
+        $vData["title"] = "About us - Online Store";
+        $vData["subtitle"] = "About us";
+        $vData["description"] = "This is an about page ...";
+        $vData["author"] = "Developed by: som";
+        return view('home.about')->with("vData", $vData);
     }
 }
