@@ -10,19 +10,19 @@ class ProductController extends Controller
 
         public function index()
         {
-        $vData = [];
-        $vData["title"] = "Products - Online Store";
-        $vData["subtitle"] = "List of products";
-        $vData["products"] = Product::get();
-        return view('product.index')->with("vData", $vData);
+        $viewData = [];
+        $viewData["title"] = "Products - Online Store";
+        $viewData["subtitle"] = "List of products";
+        $viewData["products"] = Product::get();
+        return view('product.index')->with("viewData", $viewData);
         }
         public function show($id)
         {
-        $vData = [];
+        $viewData = [];
         $product = Product::findOrFail($id);
-        $vData["title"] = $product->getName()." - Online Store";
-        $vData["subtitle"] = $product->getName()." - Product information";
-        $vData["product"] = $product;
-        return view('product.show')->with("vData", $vData);
+        $viewData["title"] = $product->getName()." - Online Store";
+        $viewData["subtitle"] = $product->getName()." - Product information";
+        $viewData["product"] = $product;
+        return view('product.show')->with("viewData", $viewData);
         }
 }
