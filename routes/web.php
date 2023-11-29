@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -27,3 +28,7 @@ Route::get('/admin/products/{id}/edit', [AdminProductController::class, 'edit'])
 Route::put('/admin/products/{id}/update', [AdminProductController::class, 'update'])->name("admin.product.update");
 
 
+// |---------------------------------- ADMIN ----------------------------------------
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
