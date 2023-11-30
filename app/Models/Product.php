@@ -9,6 +9,15 @@ class Product extends Model
 {
     use HasFactory;
 
+    public static function sumPricesByQuantities($products, $productsInSession)
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
+        }
+        return $total;
+    }
+
 
 
     public function getId()
@@ -69,12 +78,12 @@ class Product extends Model
     }
 
     public static function validate($request)
-{
-$request->validate([
-"name" => "required|max:255",
-"description" => "required",
-"price" => "required|numeric|gt:0",
-'image' => 'image',
-]);
-}
+    {
+        $request->validate([
+            "name" => "required|max:255",
+            "description" => "required",
+            "price" => "required|numeric|gt:0",
+            'image' => 'image',
+        ]);
+    }
 }
