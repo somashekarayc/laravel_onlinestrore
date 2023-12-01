@@ -39,3 +39,8 @@ Route::put('/admin/products/{id}/update', [AdminProductController::class, 'updat
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/purchase', [CartController::class, 'purchase'])->name("cart.purchase");
+    });
