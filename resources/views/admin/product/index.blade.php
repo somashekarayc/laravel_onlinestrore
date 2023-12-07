@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', $viewData['title'])
+@section('title', $vData['title'])
 @section('content')
 
     <div class="card mb-4">
@@ -71,7 +71,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($viewData['products'] as $product)
+                    @foreach ($vData['products'] as $product)
                         <tr>
                             <td>{{ $product->getId() }}</td>
                             <td>{{ $product->getName() }}</td>

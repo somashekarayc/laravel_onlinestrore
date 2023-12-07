@@ -19,12 +19,12 @@ class CartController extends Controller
             $productsInCart = Product::findMany(array_keys($productsInSession));
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
         }
-        $viewData = [];
-        $viewData["title"] = "Cart - Online Store";
-        $viewData["subtitle"] = "Shopping Cart";
-        $viewData["total"] = $total;
-        $viewData["products"] = $productsInCart;
-        return view('cart.index')->with("viewData", $viewData);
+        $vData = [];
+        $vData["title"] = "Cart - Online Store";
+        $vData["subtitle"] = "Shopping Cart";
+        $vData["total"] = $total;
+        $vData["products"] = $productsInCart;
+        return view('cart.index')->with("viewData", $vData);
     }
     public function add(Request $request, $id)
     {
@@ -67,11 +67,11 @@ class CartController extends Controller
             Auth::user()->setBalance($newBalance);
             Auth::user()->save();
             $request->session()->forget('products');
-            $viewData = [];
-            $viewData["title"] = "Purchase - Online Store";
-            $viewData["subtitle"] = "Purchase Status";
-            $viewData["order"] = $order;
-            return view('cart.purchase')->with("viewData", $viewData);
+            $vData = [];
+            $vData["title"] = "Purchase - Online Store";
+            $vData["subtitle"] = "Purchase Status";
+            $vData["order"] = $order;
+            return view('cart.purchase')->with("viewData", $vData);
         } else {
             return redirect()->route('cart.index');
         }

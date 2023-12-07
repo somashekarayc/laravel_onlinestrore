@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('title', $vData["title"])
+@section('subtitle', $vData["subtitle"])
 @section('content')
-@forelse ($viewData["orders"] as $order)
+@forelse ($vData["orders"] as $order)
 <div class="card mb-4">
 <div class="card-header">
 Order #{{ $order->getId() }}

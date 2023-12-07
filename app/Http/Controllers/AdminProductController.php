@@ -10,10 +10,10 @@ class AdminProductController extends Controller
 {
     public function index()
     {
-        $viewData = [];
-        $viewData["title"] = "Admin Page - Products - Online Store";
-        $viewData["products"] = Product::get();
-        return view('admin.product.index')->with("viewData", $viewData);
+        $vData = [];
+        $vData["title"] = "Admin Page - Products - Online Store";
+        $vData["products"] = Product::get();
+        return view('admin.product.index')->with("viewData", $vData);
     }
 
     public function store(Request $request)
@@ -46,10 +46,10 @@ class AdminProductController extends Controller
 
     public function edit($id)
     {
-        $viewData = [];
-        $viewData["title"] = "Admin Page - Edit Product - Online Store";
-        $viewData["product"] = Product::findOrFail($id);
-        return view('admin.product.edit')->with("viewData", $viewData);
+        $vData = [];
+        $vData["title"] = "Admin Page - Edit Product - Online Store";
+        $vData["product"] = Product::findOrFail($id);
+        return view('admin.product.edit')->with("viewData", $vData);
     }
 
     public function update(Request $request, $id)
